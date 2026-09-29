@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Andie Awaida | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f8f6;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #7a0019;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            padding: 70px 10%;
+            background: linear-gradient(135deg, #ffffff, #f1f1ee);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text .intro {
+            color: #7a0019;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            color: #1f2937;
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 28px;
+        }
+
+        .hero-image img {
+            width: 330px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #7a0019;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #520011;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            display: inline-block;
+            border: 2px solid #7a0019;
+            color: #7a0019;
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button-secondary:hover {
+            background-color: #7a0019;
+            color: white;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 85px 10%;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* ABOUT */
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* PERSONAL STATEMENT */
+        .statement-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px;
+            background-color: #ffffff;
+            border-left: 6px solid #7a0019;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            font-size: 21px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #7a0019;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-card h3 {
+            color: #7a0019;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .project-type {
+            font-size: 14px;
+            font-weight: bold;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* EDUCATION */
+        .education-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .education-card h3 {
+            font-size: 25px;
+            color: #7a0019;
+        }
+
+        .education-card h4 {
+            font-size: 19px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .education-card p {
+            color: #555;
+            margin: 6px 0;
+        }
+
+        /* EXPERIENCE */
+        .experience-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .experience-card {
+            background-color: white;
+            margin-bottom: 25px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        }
+
+        .experience-card h3 {
+            color: #7a0019;
+        }
+
+        .experience-card h4 {
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* INTERESTS */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .interest {
+            background-color: white;
+            padding: 20px 35px;
+            border-radius: 50px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+            font-weight: 500;
+        }
+
+        /* CONTACT */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #1f2937;
+            color: white;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-image img {
+                width: 270px;
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Andie Awaida</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <p class="intro">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Andie Awaida</h1>
+
+            <h2>Finance Student at Rutgers Business School</h2>
+
+            <p>
+                Welcome to my portfolio. This website is a place where you can
+                explore my education, experiences, projects, career goals, skills,
+                and interests while learning more about who I am both personally
+                and professionally.
+            </p>
+
+            <a href="#projects" class="button">View My Projects</a>
+
+            <a href="#contact" class="button-secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img
+                src="headshot.jpg"
+                alt="Professional headshot of Andie Awaida"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>A little more about who I am.</p>
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                I am a Finance student at Rutgers Business School in New Brunswick,
+                New Jersey, with a minor in Political Science. My academic and
+                professional interests combine finance, business, research, and law.
+                After completing my undergraduate degree, I hope to attend law school
+                and pursue a career that allows me to connect my understanding of
+                finance with the legal field.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PERSONAL STATEMENT -->
+    <section id="statement">
+
+        <div class="section-title">
+            <h2>Personal Statement</h2>
+        </div>
+
+        <div class="statement-box">
+
+            I am a Finance student at Rutgers Business School with a passion for
+            financial analysis, business strategy, and law, seeking opportunities
+            to apply analytical and professional skills to real-world challenges.
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>Skills</h2>
+            <p>
+                Technical and professional skills I bring to my work.
+            </p>
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Microsoft Excel</h3>
+
+                <p>
+                    Data organization, calculations, financial analysis,
+                    spreadsheets, and quantitative problem solving.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Data Analytics</h3>
+
+                <p>
+                    Analyzing quantitative information and identifying meaningful
+                    trends and relationships within data.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Morningstar</h3>
+
+                <p>
+                    Familiarity with investment and financial research tools used
+                    to evaluate companies and financial markets.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Research</h3>
+
+                <p>
+                    Gathering, evaluating, and organizing information to support
+                    academic and business decisions.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Microsoft PowerPoint</h3>
+
+                <p>
+                    Creating organized and professional presentations for academic
+                    and business projects.
+                </p>
+            </div>
+
+
+            <div class="skill-card">
+                <h3>Communication</h3>
+
+                <p>
+                    Strong written, verbal, interpersonal, and team communication
+                    developed through coursework and professional experience.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>Projects</h2>
+
+            <p>
+                Selected academic and professional projects.
+            </p>
+        </div>
+
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+
+                <p class="project-type">
+                    Management Project
+                </p>
+
+                <h3>
+                    Business Proposal & International Expansion
+                </h3>
+
+                <p>
+                    Collaborated with a team to develop a business proposal designed
+                    for the Rutgers community. The project included creating the
+                    company's mission and vision, establishing financial objectives,
+                    evaluating its target market, and developing a strategy for
+                    international expansion.
+                </p>
+
+                <p>
+                    <strong>Skills:</strong>
+                    Business Strategy, Teamwork, Market Research,
+                    Financial Planning, Presentation
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+
+                <p class="project-type">
+                    Data Analysis Project
+                </p>
+
+                <h3>
+                    Statistical & Financial Data Analysis
+                </h3>
+
+                <p>
+                    Completed quantitative analysis projects using statistical
+                    methods to examine relationships between variables, interpret
+                    regression results, evaluate statistical significance, and
+                    communicate conclusions based on data.
+                </p>
+
+                <p>
+                    <strong>Skills:</strong>
+                    Excel, Statistics, Regression,
+                    Data Analysis, Critical Thinking
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+
+                <p class="project-type">
+                    Web Development Project
+                </p>
+
+                <h3>
+                    Personal Portfolio Website
+                </h3>
+
+                <p>
+                    Designed and developed this personal portfolio website using
+                    HTML and CSS and deployed it through GitHub Pages. The site
+                    presents my education, skills, professional experience,
+                    projects, and career interests in an accessible digital format.
+                </p>
+
+                <p>
+                    <strong>Skills:</strong>
+                    HTML, CSS, GitHub,
+                    Web Design, Digital Communication
+                </p>
+
+                <a href="#home" class="button">
+                    View Live Project
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>Education</h2>
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>
+                Rutgers Business School
+            </h3>
+
+            <h4>
+                Rutgers University – New Brunswick
+            </h4>
+
+            <p>
+                <strong>
+                    Bachelor of Science in Finance
+                </strong>
+            </p>
+
+            <p>
+                Minor: Political Science
+            </p>
+
+            <p>
+                Expected Graduation: May 2028
+            </p>
+
+            <p>
+                Dean's List
+            </p>
+
+            <br>
+
+            <p>
+                <strong>
+                    Relevant Coursework:
+                </strong>
+
+                Financial Accounting,
+                Managerial Accounting,
+                Financial Management,
+                Economics,
+                and Statistics
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+        <div class="section-title">
+            <h2>Experience</h2>
+
+            <p>
+                Professional experiences that have contributed to my development.
+            </p>
+        </div>
+
+
+        <div class="experience-container">
+
+            <div class="experience-card">
+
+                <h3>
+                    Morgan Stanley
+                </h3>
+
+                <h4>
+                    Private Wealth Management Intern
+                </h4>
+
+                <p>
+                    Gained exposure to the financial services industry and private
+                    wealth management while developing professional communication,
+                    research, and analytical skills.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <h3>
+                    Professional & Client-Facing Experience
+                </h3>
+
+                <p>
+                    My work experience has strengthened my communication,
+                    organization, teamwork, problem-solving, and ability to work
+                    professionally with individuals from different backgrounds.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERESTS -->
+    <section id="interests">
+
+        <div class="section-title">
+
+            <h2>Interests</h2>
+
+            <p>
+                Outside of school and work, I enjoy spending time doing the
+                things that help me stay active and connected.
+            </p>
+
+        </div>
+
+
+        <div class="interests">
+
+            <div class="interest">
+                🏓 Pickleball
+            </div>
+
+            <div class="interest">
+                📺 Watching TV Shows
+            </div>
+
+            <div class="interest">
+                🎵 Listening to Music
+            </div>
+
+            <div class="interest">
+                👥 Spending Time With Friends
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+
+            <h2>Contact Me</h2>
+
+            <p>
+                Thank you for visiting my portfolio.
+            </p>
+
+        </div>
+
+
+        <p>
+            I am always interested in opportunities to learn,
+            grow, and connect professionally.
+        </p>
+
+
+        <!-- CHANGE THIS TO YOUR REAL EMAIL -->
+
+        <a
+            href="mailto:YOUR-EMAIL@rutgers.edu"
+            class="button"
+        >
+            Email Me
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Andie Awaida | Personal Portfolio
+        </p>
+
+    </footer>
+
+</body>
+</html>
